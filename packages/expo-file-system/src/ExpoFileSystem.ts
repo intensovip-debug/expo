@@ -3,6 +3,7 @@ import { NativeModule, requireNativeModule } from 'expo-modules-core';
 import type {
   Directory,
   File,
+  ZipArchive,
   DownloadOptions,
   DownloadProgress,
   PickSingleFileOptions,
@@ -50,6 +51,8 @@ declare class ExpoFileSystemModule extends NativeModule<FileSystemEvents> {
     destination: Directory,
     options?: UnzipOptions
   ): Directory;
+  ZipArchive: typeof ZipArchive;
+  openAsArchive(source: File): ZipArchive;
   totalDiskSpace: number;
   availableDiskSpace: number;
   documentDirectory: string;
